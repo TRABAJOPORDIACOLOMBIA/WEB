@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabajo por Días - Colombia</title>
+
+  <style>
+    /* Fondo general con imagen y superposición */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin: 30px 0;
+      font-size: 2.5em;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    section {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #222;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #fefefe;
+      color: #333;
+    }
+
+    button {
+      background-color: #1c6b48;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #145a3f;
+      transform: scale(1.03);
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📲 Trabajo por Días - Colombia</h1>
+
+  <!-- Registro de Trabajador -->
+  <section>
+    <h2>👷 Registro de Trabajador</h2>
+    <label>Nombre completo</label>
+    <input type="text" id="nombre-trabajador" placeholder="Ej: Juan Pérez" />
+
+    <label>Ciudad</label>
+    <input type="text" id="ciudad-trabajador" />
+
+    <label>Lugar de nacimiento</label>
+    <input type="text" id="nacimiento-trabajador" />
+
+    <label>Edad</label>
+    <input type="number" id="edad-trabajador" min="18" max="99" />
+
+    <label>Ocupación</label>
+    <select id="ocupacion-trabajador">
+      <option value="">Selecciona una ocupación</option>
+      <option>Niñera</option>
+      <option>Obrero</option>
+      <option>Cocinero/a</option>
+      <option>Conductor</option>
+      <option>Domiciliario</option>
+      <option>Maquillista</option>
+      <option>Aseador/a</option>
+      <option>Manicurista</option>
+      <option>Enfermero/a</option>
+    </select>
+
+    <label>Tarifa por día (COP)</label>
+    <input type="number" id="tarifa-trabajador" />
+
+    <label>Subir hoja de vida (PDF)</label>
+    <input type="file" id="cv-trabajador" accept=".pdf" />
+
+    <label>Fotos de trabajos anteriores</label>
+    <input type="file" id="fotos-trabajador" multiple accept="image/*" />
+
+    <label>Documento de identidad (Cédula o Pasaporte)</label>
+    <input type="file" id="doc-trabajador" accept=".jpg,.png,.pdf" />
+
+    <label>Face ID (Selfie)</label>
+    <input type="file" id="face-trabajador" accept="image/*" />
+
+    <button id="btn-trabajador">Registrarse como Trabajador</button>
+  </section>
+
+  <!-- Registro de Empleador -->
+  <section>
+    <h2>👤 Registro de Empleador</h2>
+    <label>Nombre completo</label>
+    <input type="text" id="nombre-empleador" />
+
+    <label>Ciudad</label>
+    <input type="text" id="ciudad-empleador" />
+
+    <label>Descripción del trabajo</label>
+    <input type="text" id="descripcion-empleo" placeholder="Ej: Necesito niñera para el sábado" />
+
+    <label>Oferta de pago (COP)</label>
+    <input type="number" id="oferta-empleo" />
+
+    <label>Documento de identidad (Cédula o Pasaporte)</label>
+    <input type="file" id="doc-empleador" accept=".jpg,.png,.pdf" />
+
+    <label>Face ID (Selfie)</label>
+    <input type="file" id="face-empleador" accept="image/*" />
+
+    <button id="btn-empleador">Registrarse como Empleador</button>
+  </section>
+
+  <!-- Comentarios y Reseñas -->
+  <section>
+    <h2>📝 Comentarios y Reseñas</h2>
+    <label>Tu experiencia</label>
+    <textarea id="comentario" rows="4" placeholder="Comparte cómo fue el trabajo o el empleador..."></textarea>
+    <button id="btn-comentario">Enviar reseña</button>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnTrabajador = document.querySelector("#btn-trabajador");
+      if (btnTrabajador) {
+        btnTrabajador.addEventListener("click", () => {
+          const campos = [
+            "nombre-trabajador", "ciudad-trabajador", "nacimiento-trabajador",
+            "edad-trabajador", "ocupacion-trabajador", "tarifa-trabajador",
+            "cv-trabajador", "fotos-trabajador", "doc-trabajador", "face-trabajador"
+          ];
+
+          const vacios = campos.filter(id => !document.getElementById(id).value);
+          if (vacios.length > 0) {
+            alert("⚠️ Por favor completa todos los campos obligatorios del trabajador.");
+          } else {
+            alert("✅ Registro de trabajador exitoso. Tu perfil será revisado.");
+          }
+        });
+      }
+
+      const btnEmpleador = document.querySelector("#btn-empleador");
+      if (btnEmpleador) {
+        btnEmpleador.addEventListener("click", () => {
+          const campos = [
+            "nombre-empleador", "ciudad-empleador",
+            "descripcion-empleo", "oferta-empleo",
+            "doc-empleador", "face-empleador"
+          ];
+
+          const vacios = campos.filter(id => !document.getElementById(id).value);
+          if (vacios.length > 0) {
+            alert("⚠️ Por favor completa todos los campos del empleador.");
+          } else {
+            alert("✅ Registro del empleador exitoso. Puedes comenzar a publicar ofertas.");
+          }
+        });
+      }
+
+      const btnComentario = document.querySelector("#btn-comentario");
+      if (btnComentario) {
+        btnComentario.addEventListener("click", () => {
+          const comentario = document.querySelector("#comentario").value;
+          if (comentario.length < 10) {
+            alert("✍️ Por favor escribe una reseña más detallada (mínimo 10 caracteres).");
+          } else {
+            alert("✅ ¡Gracias por tu reseña! Será publicada pronto.");
+            document.querySelector("#comentario").value = "";
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
